@@ -10,6 +10,7 @@
     color: #fff;
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -17,7 +18,7 @@
     user-select: none;
   }
   #number {
-    font-size: 40vw;
+    font-size: 70vh;
     font-weight: 700;
     line-height: 1;
     text-align: center;
@@ -98,7 +99,8 @@
     numEl.textContent = value;
     input.value = value;
     // scale font down if number gets wide
-    numEl.style.fontSize = String(value).length > 2 ? `${Math.max(10, 40 / String(value).length * 2)}vw` : '40vw';
+    const digits = String(value).length;
+    numEl.style.fontSize = digits > 2 ? `${Math.max(15, 70 / digits * 1.5)}vh` : '70vh';
   }
 
   document.getElementById('up').addEventListener('click', () => update(value + 1));
